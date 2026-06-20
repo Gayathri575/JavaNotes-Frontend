@@ -1,0 +1,148 @@
+/* ===========================
+   IMPORTS
+=========================== */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --dark:       #222831;
+  --dark-alt:   #393e46;
+  --accent:     #00adb5;
+  --light:      #eeeeee;
+  --white:      #ffffff;
+  --radius:     10px;
+  --transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ===========================
+   NAVBAR
+=========================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--dark);
+  padding: 1rem 10%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0, 173, 181, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  color: var(--white);
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: -0.3px;
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #ccc;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
+  position: relative;
+  padding-bottom: 3px;
+  transition: color var(--transition);
+}
+
+/* underline hover effect */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--white);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ===========================
+   HAMBURGER BUTTON
+=========================== */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  color: var(--white);
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.menu-toggle:hover {
+  border-color: var(--accent);
+  background: rgba(0, 173, 181, 0.1);
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 5%;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: #1b2028;
+    padding: 16px;
+    position: absolute;
+    top: 62px;
+    right: 5%;
+    left: 5%;
+    border-radius: var(--radius);
+    border: 1px solid rgba(0, 173, 181, 0.15);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+  }
+
+  .nav-links a:hover {
+    background: rgba(0, 173, 181, 0.1);
+  }
+
+  .nav-links a::after {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}

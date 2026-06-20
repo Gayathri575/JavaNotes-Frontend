@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --dark:       #222831;
+  --dark-alt:   #393e46;
+  --accent:     #00adb5;
+  --accent-dim: #007f87;
+  --light:      #eeeeee;
+  --white:      #ffffff;
+  --radius:     10px;
+  --transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ── Page Wrapper ─────────────────────────────── */
+.project-wrapper {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+/* ── Back Button ──────────────────────────────── */
+.back-btn {
+  background: none;
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 24px;
+  transition: background var(--transition), color var(--transition);
+}
+
+.back-btn:hover {
+  background: var(--accent);
+  color: var(--white);
+}
+
+/* ── Project Card ─────────────────────────────── */
+.project-section {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 30px 35px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.project-section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ── Project Title ────────────────────────────── */
+.project-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+
+/* ── Tech Stack ───────────────────────────────── */
+.tech-stack {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--accent-dim);
+  margin-bottom: 16px;
+}
+
+/* ── Description ──────────────────────────────── */
+.description {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--dark-alt);
+  margin-bottom: 24px;
+}
+
+/* ── GitHub Button ────────────────────────────── */
+.btn-github {
+  display: inline-block;
+  text-decoration: none;
+  background: var(--accent);
+  color: var(--white);
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.btn-github:hover {
+  background: var(--accent-dim);
+  transform: translateY(-2px);
+}
+
+/* ── Not Found ────────────────────────────────── */
+.not-found {
+  text-align: center;
+  margin-top: 80px;
+  color: var(--dark);
+}
+
+.not-found button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: var(--accent);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* ── Mobile ───────────────────────────────────── */
+@media (max-width: 768px) {
+  .project-wrapper {
+    margin: 30px auto;
+  }
+
+  .project-section {
+    padding: 20px;
+  }
+
+  .project-title {
+    font-size: 1.2rem;
+  }
+}

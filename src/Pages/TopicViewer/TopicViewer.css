@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --dark:       #222831;
+  --dark-alt:   #393e46;
+  --accent:     #00adb5;
+  --accent-dim: #007f87;
+  --light:      #eeeeee;
+  --white:      #ffffff;
+  --muted:      #8b949e;
+  --radius:     10px;
+  --transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ── Topic Layout ─────────────────────────────── */
+.topic-container {
+  display: flex;
+  height: calc(100vh - 62px);
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ── Sidebar ──────────────────────────────────── */
+.sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  background: var(--dark);
+  color: white;
+  padding: 16px 10px;
+  height: 100%;
+  overflow-y: auto;
+  border-right: 1px solid var(--dark-alt);
+}
+
+.sidebar::-webkit-scrollbar       { width: 6px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--dark-alt); border-radius: 10px; }
+.sidebar:hover::-webkit-scrollbar-thumb { background: var(--accent); }
+
+#sidebar-list { list-style: none; padding: 0; margin: 0; }
+
+/* ── Section Header ───────────────────────────── */
+.sidebar-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 6px;
+  background: rgba(0, 173, 181, 0.08);
+  transition: background 0.2s ease;
+}
+
+.sidebar-section-header:hover {
+  background: rgba(0, 173, 181, 0.18);
+}
+
+.sidebar-section-header .arrow {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+/* ── Sublist ──────────────────────────────────── */
+.sidebar-sublist {
+  list-style: none;
+  padding-left: 8px;
+  margin-bottom: 4px;
+}
+
+.sidebar-subitem {
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  color: #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 3px;
+  transition: all 0.2s ease;
+}
+
+.sidebar-subitem:hover:not(.active) {
+  background: rgba(0, 173, 181, 0.15);
+  color: white;
+}
+
+.sidebar-subitem.active {
+  background: var(--accent);
+  color: white;
+  font-weight: 600;
+}
+
+/* ── Main Content Area ────────────────────────── */
+.topic-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 40px;
+  background: var(--light);
+  height: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+#page-content {
+  flex: 1;
+  background: var(--white);
+  border-radius: 8px;
+  padding: 30px;
+  line-height: 1.8;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow-y: auto;
+}
+
+/* ── Note Card ────────────────────────────────── */
+.note-card h2 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.4rem;
+  color: var(--dark);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--accent);
+}
+
+.note-body {
+  font-size: 0.97rem;
+  color: var(--dark-alt);
+  line-height: 1.85;
+}
+
+.note-body h3, .note-body h4 {
+  color: var(--dark);
+  margin: 16px 0 8px;
+}
+
+.note-body pre, .note-body code {
+  background: #f4f4f4;
+  border-radius: 6px;
+  padding: 2px 6px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.88rem;
+}
+
+.note-body pre {
+  padding: 14px 18px;
+  overflow-x: auto;
+  margin: 12px 0;
+  border-left: 3px solid var(--accent);
+}
+
+.note-body ul, .note-body ol {
+  padding-left: 20px;
+  margin: 8px 0;
+}
+
+.note-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 0.9rem;
+}
+
+.note-body th, .note-body td {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.note-body th { background: var(--dark); color: white; }
+
+/* ── Loader ───────────────────────────────────── */
+.loader {
+  text-align: center;
+  padding: 50px;
+  font-style: italic;
+  color: var(--muted);
+}
+
+/* ── Pagination ───────────────────────────────── */
+.pagination {
+  margin-top: 15px;
+  padding: 15px;
+  background: var(--white);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.03);
+  flex-shrink: 0;
+}
+
+.pagination button {
+  padding: 10px 20px;
+  background: var(--dark);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  transition: 0.3s;
+}
+
+.pagination button:hover:not(:disabled) { background: var(--accent); }
+.pagination button:disabled { background: #ccc; cursor: not-allowed; }
+
+#page-number {
+  font-weight: bold;
+  color: var(--dark);
+  font-size: 0.95rem;
+}
+
+/* ── Not Found ────────────────────────────────── */
+.tv-not-found {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.tv-not-found button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* ── Mobile ───────────────────────────────────── */
+@media (max-width: 768px) {
+  .topic-container { height: auto; flex-direction: column; }
+  .sidebar         { display: none; }
+  .topic-content   { padding: 15px; height: auto; }
+
+  #page-content {
+    height: auto;
+    min-height: 60vh;
+    overflow-y: visible;
+  }
+}
