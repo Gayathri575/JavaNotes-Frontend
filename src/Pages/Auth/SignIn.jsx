@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { isLoggedIn, saveSession } from "./auth";
+import { isLoggedIn, saveSession } from "./Auth";
 import "./Auth.css";
 function SignIn() {
   const navigate  = useNavigate();

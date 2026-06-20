@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
-import { isLoggedIn, clearSession } from "../Auth/auth";
+import { isLoggedIn, clearSession } from "../Auth/Auth";
 import { quizTopics } from "../Quiz/quizTopics";
 import "../Articles/Articles.css";
 

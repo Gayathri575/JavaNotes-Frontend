@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
-import { projectsData } from "./projectsData";
+import { ProjectsData } from "./ProjectsData";
 import "./ProjectDetail.css";
 
 function ProjectDetail() {
