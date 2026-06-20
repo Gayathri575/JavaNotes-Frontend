@@ -1,5 +1,5 @@
 // All project data in one place — easy to add/edit!
-export const projectsData = {
+export const ProjectsData = {
   ems: {
     title: "Electricity Bill Management System (EMS)",
     tech: "Java 8, Spring Boot, MySQL, Spring Data JPA, REST API",
